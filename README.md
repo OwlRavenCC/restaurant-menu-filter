@@ -2,4 +2,3 @@
 
 # ![](preview.gif)
 
-![](preview.gif)
