@@ -1,0 +1,259 @@
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  --main-text-clr: hsl(0, 0%, 13%);
+  --main-theme: hsl(0, 0%, 100%);
+  --main-accent-clr: hsl(25, 33%, 66%);
+
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --desktop-width: 920px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  background: var(--main-theme);
+  color: var(--main-text-clr);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+
+main {
+  width: 100vw;
+  margin: 5rem auto;
+  max-width: var(--max-width);
+}
+
+@media screen and (min-width: 992px) {
+  main {
+    width: 100vw;
+  }
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.title-line {
+  width: 50%;
+  height: 1.5px;
+  margin: 2rem auto;
+  display: block;
+  border-radius: var(--radius);
+  background: var(--main-accent-clr);
+}
+
+.filter-container {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-container > .filter-btn {
+  padding: 0.5rem 1.5rem;
+  margin: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  color: #3a3a3a;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-container > .filter-btn:hover {
+  box-shadow: var(--dark-shadow);
+}
+
+.filter-btn.active-filter {
+  transform: translateY(-5px);
+  box-shadow: var(--dark-shadow);
+}
+
+.filter-btn.active-filter::after {
+  width: 100%;
+  height: 2px;
+  background: #3a3a3a;
+}
+
+.underline {
+  width: 100%;
+  height: 2.5px;
+  margin-top: 15px;
+  align-self: flex-end;
+  left: -200px;
+  background: var(--main-accent-clr);
+  position: absolute;
+  transition: all 0.3s ease-Out;
+  bottom: 0;
+}
+
+.filter-btn:hover .underline {
+  left: 0;
+}
+
+.menu-container {
+  display: grid;
+  align-content: center;
+  gap: 3rem;
+  padding: 2rem 1rem;
+  background: #f3f3f3;
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 992px) {
+  .menu-container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 5rem;
+  }
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.menu-item > .content {
+  margin: auto 1rem;
+}
+
+.item-img-container {
+  position: relative;
+}
+
+.item-img-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.item-img-background {
+  background: var(--main-accent-clr);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 0;
+  transition: all 0.2s ease-Out;
+}
+
+.menu-item:hover .item-img-background {
+  transform: translate(7px, -7px);
+}
+
+.item-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-header > .title {
+  font-size: 1rem;
+  text-align: left;
+  margin: 0;
+}
+
+.item-header > .header-line {
+  flex: 2 1 100%;
+  padding: 0;
+  margin: 0 5%;
+  width: auto;
+  height: 0.1rem;
+  background: var(--main-accent-clr);
+}
+
+.item-des {
+  margin: 1rem 0;
+}
+
+.price {
+  font-size: 1.1rem;
+}
