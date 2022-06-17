@@ -1,1 +1,5 @@
-# Dynamic Restaurant Menu Filtering UI using React Hooks
+# Dynamic Restaurant Menu Filtering UI - React Hooks
+
+# ![](preview.gif)
+
+![](preview.gif)
